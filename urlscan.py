@@ -1,11 +1,7 @@
 import requests
 import json
-import configparser
 
 def checkURL(URLScan, URLapikey):
-    config = configparser.ConfigParser() # Allows for config.ini to be parsed
-    config.read('config.ini') # Reads config file with API Keys    
-    
     headers = {'API-Key':URLapikey,'Content-Type':'application/json'}
     data = {"url": URLScan, "visibility": "private"}
     response = requests.post('https://urlscan.io/api/v1/scan/',headers=headers, data=json.dumps(data))
